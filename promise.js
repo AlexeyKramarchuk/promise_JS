@@ -231,7 +231,7 @@ const backendData = {
   console.log('Modified', data)
 })
 .catch(err => console.error('Error: ', err))
-.finally(() => console.log('Finally'))*/
+.finally(() => console.log('Finally'))
 
 
 
@@ -251,3 +251,22 @@ Promise.all([sleep(2000), sleep(5000)]).then(() => {
 Promise.race([sleep(2000), sleep(5000)]).then(() => {
   console.log('Race promises')
 })
+
+
+function delay(ms) {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(), ms)
+  })
+}
+
+
+delay(3000).then(() => alert('выполнилось через 3 секунды'));*/
+
+
+const countriesAPI = 'https://restcountries.com/v3.1/all';
+const catsAPI = 'https://api.thecatapi.com/v1/breeds';
+
+fetch(countriesAPI)
+.then(response => response.text())
+.then(json => console.log(json))
+
