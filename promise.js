@@ -173,17 +173,6 @@
 
 
 
-    async function job() {
-
-        let promise = new Promise((resolve, reject) => {
-          setTimeout(() => resolve("hello world"), 2000)
-        });
-      
-        let result = await promise; // czekaj, aż promise zwróci result
-        alert(result); // "Job done!"
-      }
-      
-      job();
 
 
  console.log('Request data ...')   
@@ -260,13 +249,40 @@ function delay(ms) {
 }
 
 
-delay(3000).then(() => alert('выполнилось через 3 секунды'));*/
+delay(3000).then(() => alert('выполнилось через 3 секунды'));
 
 
-const countriesAPI = 'https://restcountries.com/v3.1/all';
-const catsAPI = 'https://api.thecatapi.com/v1/breeds';
 
-fetch(countriesAPI)
-.then(response => response.text())
-.then(json => console.log(json))
 
+const delay = ms => {
+  return new Promise(r => setTimeout(() => r(), ms))
+}
+
+const url = 'https://jsonplaceholder.typicode.com/todos'
+
+function fetchTodos() {
+  console.log('Fetch todo started...')
+  return delay(2000)
+  .then(() =>  fetch(url))
+  .then(response => response.json())
+}
+
+fetchTodos()
+.then(data => {
+  console.log('Data:', data)
+})
+.catch(e => console.error(e))
+
+async function fetchAsyncTodos() {
+  console.log('Fetch todo started...')
+  try {
+    await delay(2000)
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log('Data:', data)
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+fetchAsyncTodos()*/
