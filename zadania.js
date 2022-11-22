@@ -1,12 +1,18 @@
-/*Zad 1.
+// Zad 1.
 
-const countriesAPI = 'https://restcountries.com/v3.1/all';
-const catsAPI = 'https://api.thecatapi.com/v1/breeds';
+// c
 
-fetch(catsAPI)
-.then(response => response.json)
-.then()
-*/
+// fetch(catsAPI)
+// .then(function(response) {
+//   return response.json(); 
+// })
+// .then(function(text) { 
+//   text.forEach(((el) => {
+//     console.log(el.name)
+//   }))
+// });
+
+
 
 
 /*Zad 2.
@@ -28,26 +34,53 @@ async function job() {
   }
   job();*/
 
-  /*
-  Zad 3. */
+// zad 4
 
-function job(result, database, errorManager) {
-    return result
+// const people = 'https://fakerapi.it/api/v1/persons?_quantity=10'
 
-    .then(function(id) {
-        console.log(database.get(id));
-    })
-
-    .then(function(info) {
-        console.log(info.name);
-    })
-
-    .catch(function(error) {
-        errorManager.notify(error);
-        throw error;
-    });
-}
-job()
+// fetch(people)
+// .then(response => response.json())
+// .then(({data})=>{
+//   data.forEach((el) => {
+    // div
+//     const div=document.createElement('div')
+    // img
+//     const img = document.createElement('img')
+//     img.src=el.image
+//     console.log(el.image)
+    // p
+//     const p = document.createElement('p')
+//     p.textContent=`${el.firstname} ${el.lastname}`
+//     div.appendChild(img)
+//     div.appendChild(p)
+//     document.body.appendChild(div)
+//   })
+// })
  
+// zad 5
 
+
+const users = 'https://jsonplaceholder.typicode.com/users'
+
+    fetch(users)
+    .then(response => response.json())
+    .then((data)=>{
+      data.forEach((el) => {
+        // console.log(el)
+
+        function createUsersCards() {
+          const div = document.createElement('div')
+          const p = document.createElement('p')
+      
+            p.textContent=`${el.name}, ${el.username}, ${el.email}`
+
+            div.appendChild(p)
+            document.body.appendChild(div)
+            }
+        createUsersCards()
+
+
+        
+   })
+  })
     
